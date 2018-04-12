@@ -11,18 +11,4 @@ public class Admin extends User {
 	public void setRole(int role) {
 		this.role = role;
 	}
-
-	@Override
-	public boolean updatePassword(String pwd) {
-		// TODO
-		return false;
-	}
-
-	@Override
-	public boolean isValidUser() {
-		// TODO
-		return false;
-	}
-	
-	
 }

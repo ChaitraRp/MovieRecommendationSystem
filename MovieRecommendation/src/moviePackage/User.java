@@ -1,15 +1,11 @@
 package moviePackage;
 
 public abstract class User {
-	protected String username;
+	protected String username;		//Email id of user.
 	protected String password;
 	protected String userId;
 	protected Boolean accountAlive;
 	protected int userType;
-	
-	public abstract boolean updatePassword(String pwd);
-	
-	public abstract boolean isValidUser();
 	
 	public String getUsername() {
 		return username;

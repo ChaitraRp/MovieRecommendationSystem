@@ -2,11 +2,11 @@ package moviePackage;
 
 import java.util.List;
 
-public class Customer extends User{
+public class Customer extends User {
 
 	private String name;
 	private String phoneNum;
-	private boolean isPremiumCustomer;
+	private int cutomerType;		// 0: Premium, 1: Normal
 	private List<Recommend> recmdMovieList;
 	
 	public String getName() {
@@ -25,12 +25,12 @@ public class Customer extends User{
 		this.phoneNum = phoneNum;
 	}
 
-	public boolean isPremiumCustomer() {
-		return isPremiumCustomer;
+	public int getCutomerType() {
+		return cutomerType;
 	}
 
-	public void setPremiumCustomer(boolean isPremiumCustomer) {
-		this.isPremiumCustomer = isPremiumCustomer;
+	public void setCutomerType(int cutomerType) {
+		this.cutomerType = cutomerType;
 	}
 
 	public List<Recommend> getRecmdMovieList() {
@@ -39,18 +39,6 @@ public class Customer extends User{
 
 	public void setRecmdMovieList(List<Recommend> recmdMovieList) {
 		this.recmdMovieList = recmdMovieList;
-	}
-
-	@Override
-	public boolean updatePassword(String pwd) {
-		// TODO 
-		return false;
-	}
-
-	@Override
-	public boolean isValidUser() {
-		// TODO 
-		return false;
 	}
 	
 }
