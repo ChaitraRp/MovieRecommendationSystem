@@ -42,4 +42,14 @@ public class RecommendationService {
 		 */
 		return null;
 	}
+	
+	public Boolean updateMovieRating(String movieID, int rating, String custID) {
+		/*
+		 * make database connection
+		 * movieRatingMap has movie id and rating
+		 * the database should be updated with new rating for the movieid
+		 * if update was successful, return true, else return false
+		 */
+		return null;
+	}
 }

@@ -17,7 +17,7 @@ public class MovieService {
 		return null;
 	}
 	
-	public Boolean updateMovieRating(String movieID, int rating) {
+	public Boolean updateMovieRating(String movieID, int rating, String custID) {
 		/*
 		 * make database connection
 		 * movieRatingMap has movie id and rating
