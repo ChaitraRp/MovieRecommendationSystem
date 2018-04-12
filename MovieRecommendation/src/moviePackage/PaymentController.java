@@ -1,13 +1,24 @@
 package moviePackage;
 
 public class PaymentController {
-	public Boolean buyPlan(Customer cust, int planID) {
+	protected int paymentID;
+	protected double amount;
+	
+	public void setPaymentID(int payID) {
+		this.paymentID = payID;
+	}
+	
+	public void setAmount(double amt) {
+		this.amount = amt;
+	}
+	
+	public boolean buyPlan(Customer cust, int planID) {
 		//TODO
-		return null;
+		return true;
 	}
 	
 	public void processPayment(Payment pay, String paymentDetails, Customer cust) {
-		//TODO
+		PaymentService.processPayment(pay, paymentDetails, cust);
 	}
 	
 	public void showPaymentSuccess() {
@@ -15,11 +26,11 @@ public class PaymentController {
 	}
 	
 	public void processRefund(Payment pay) {
-		//TODO
+		PaymentService.processRefund(pay);
 	}
 	
-	public Boolean checkAgreementResponse() {
+	public boolean checkAgreementResponse() {
 		//TODO
-		return null;
+		return true;
 	}
 }

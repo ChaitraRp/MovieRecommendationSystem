@@ -1,16 +1,16 @@
 package moviePackage;
 
 public class PaymentService {
-	public Boolean isPaymentValid(Payment pay) {
+	public boolean isPaymentValid(Payment pay) {
 		/*
 		 * make database connection.
 		 * if Payment goes through then it is termed as valid
 		 * if payment was successful, return true, else return false
 		 */
-		return null;
+		return true;
 	}
 	
-	public Boolean processPayment(Payment pay, String paymentDetails, Customer cust) {
+	public static boolean processPayment(Payment pay, String paymentDetails, Customer cust) {
 		/*
 		 * make database connection.
 		 * take required values from payment class, and club it with paymentDetails 
@@ -18,10 +18,10 @@ public class PaymentService {
 		 * re-direct to payment channel chosen and expect a return successful/unsuccessful
 		 * if payment is successful then return true, else return false
 		 */
-		return null;
+		return true;
 	}
 	
-	public Boolean processRefund(Payment pay) {
+	public static boolean processRefund(Payment pay) {
 		/*
 		 * make database connection.
 		 * in case the payment was unsuccessful for some reason and the user did not get the
@@ -30,7 +30,7 @@ public class PaymentService {
 		 * use paymentid for verifying which is the failed transaction
 		 * if refund is successful, return true, else return false
 		 */
-		return null;
+		return true;
 	}
 	
 	public void customerMonthlyPayment(Payment pay) {
@@ -41,12 +41,12 @@ public class PaymentService {
 		 */
 	}
 	
-	public Boolean updatePaymentInDb(Payment pay) {
+	public boolean updatePaymentInDb(Payment pay) {
 		/*
 		 * make database connection.
 		 * take values from the Payment class and push them into database
 		 * if update was successful, return true, else return false
 		 */
-		return null;
+		return true;
 	}
 }

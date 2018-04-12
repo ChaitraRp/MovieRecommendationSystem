@@ -8,23 +8,23 @@ public class MovieService {
 		 */
 	}
 	
-	public Boolean updateMovieDetails(Movie mov) {
+	public boolean updateMovieDetails(Movie mov) {
 		/*
 		 * make database connection.
 		 * take movieid from Movie and update that particular row in database
 		 * if update is successful, return true, else return false
 		 */
-		return null;
+		return true;
 	}
 	
-	public Boolean updateMovieRating(String movieID, int rating, String custID) {
+	public boolean updateMovieRating(String movieID, int rating, String custID) {
 		/*
 		 * make database connection
 		 * movieRatingMap has movie id and rating
 		 * the database should be updated with new rating for the movieid
 		 * if update was successful, return true, else return false
 		 */
-		return null;
+		return true;
 	}
 
 	public void showAllMovies() {
