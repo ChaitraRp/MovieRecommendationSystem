@@ -31,17 +31,7 @@ public class RecommendationService {
 		 * if update was successful, return true, else return false
 		 */
 		return null;
-	}
-	
-	public Boolean updateMovieRating(Map<String, Integer> movieRatingMap) {
-		/*
-		 * make database connection
-		 * movieRatingMap has movie id and rating
-		 * the database should be updated with new rating for the movieid
-		 * if update was successful, return true, else return false
-		 */
-		return null;
-	}
+	}	
 	
 	public List<Movie> downloadRecmdedMovieList(String customerID) {
 		/*
