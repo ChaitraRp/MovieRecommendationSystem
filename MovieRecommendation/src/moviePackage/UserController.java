@@ -2,7 +2,7 @@ package moviePackage;
 
 public abstract class UserController {
 	
-	public Customer logic(String username, String password) {
+	public Customer login(String username, String password) {
 		return UserService.validateUser(username, password);
 	}
 	
