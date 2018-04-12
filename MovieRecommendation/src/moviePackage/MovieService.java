@@ -1,7 +1,5 @@
 package moviePackage;
 
-import java.util.Map;
-
 public class MovieService {
 	public void addMovieDetails(Movie mov) {
 		/*
@@ -27,5 +25,13 @@ public class MovieService {
 		 * if update was successful, return true, else return false
 		 */
 		return null;
+	}
+
+	public void showAllMovies() {
+		/*
+		 * make database connection
+		 * select all movies from movie table
+		 * display the list.
+		 */
 	}
 }

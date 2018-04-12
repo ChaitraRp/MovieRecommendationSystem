@@ -17,7 +17,7 @@ public class RecommendationController {
 		//TODO
 	}
 	
-	public downloadRecmdedMovieList(String custId) {
+	public void downloadRecmdedMovieList(String custId) {
 		//TODO
 	}
 }

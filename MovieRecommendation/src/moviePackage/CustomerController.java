@@ -41,7 +41,7 @@ public class CustomerController extends UserController {
 			 * Prompt him to select the year List
 			 */
 			RecommendationController rcmdationController = new RecommendationController();
-			rcmdationController.updatePreferances(genreList, languageList, yearList, customer.getUserId());
+			rcmdationController.updatePreferences(genreList, languageList, yearList, customer.getUserId());
 		}
 	}
 	
