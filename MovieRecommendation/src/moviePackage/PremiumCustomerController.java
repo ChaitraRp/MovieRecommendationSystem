@@ -2,7 +2,7 @@ package moviePackage;
 
 public class PremiumCustomerController extends UserController {
 
-	CustomerService premiumCustomerService = (CustomerService) UserServiceFactory.getUserService(0);
+	private CustomerService premiumCustomerService = (CustomerService) UserServiceFactory.getUserService(0);
 	
 	@Override
 	String getHomePage() {

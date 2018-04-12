@@ -8,7 +8,7 @@ public class UserService {
 		return customer;
 	}
 	
-	public static Boolean isLoggedIn(int customerID) {
+	public static Boolean isLoggedIn(String customerID) {
 		/*
 		 * 
 		 * Check in database if given customerID is currently loggedIn.

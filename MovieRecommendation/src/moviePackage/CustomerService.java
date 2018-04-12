@@ -21,7 +21,7 @@ public class CustomerService extends UserService {
 		return true;
 	}
 	
-	public void updateCustomerPlan(String planId, Customer customer) {
+	public void updateCustomerPlan(int planId, Customer customer) {
 		/*
 		 * TODO
 		 * Make database connection. Probably make a singleton class for getting te database connection object.

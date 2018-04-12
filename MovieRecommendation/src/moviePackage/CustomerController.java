@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CustomerController extends UserController {
 
-	CustomerService customerService = (CustomerService) UserServiceFactory.getUserService(1);
+	private CustomerService customerService = (CustomerService) UserServiceFactory.getUserService(1);
 	
 	@Override
 	String getHomePage() {

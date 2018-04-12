@@ -6,7 +6,7 @@ public abstract class UserController {
 		return UserService.validateUser(username, password);
 	}
 	
-	public Boolean isLoggedIn(int customerID) {
+	public Boolean isLoggedIn(String customerID) {
 		return UserService.isLoggedIn(customerID);
 	}
 	

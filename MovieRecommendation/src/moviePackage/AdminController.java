@@ -2,7 +2,7 @@ package moviePackage;
 
 public class AdminController extends UserController {
 
-	CustomerService adminService = (CustomerService) UserServiceFactory.getUserService(2);
+	private CustomerService adminService = (CustomerService) UserServiceFactory.getUserService(2);
 	
 	@Override
 	String getHomePage() {

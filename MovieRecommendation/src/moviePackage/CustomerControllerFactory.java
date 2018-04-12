@@ -2,7 +2,7 @@ package moviePackage;
 
 public class CustomerControllerFactory {
 	
-	public UserController getUserController(int userType) {
+	public static UserController getUserController(int userType) {
 		UserController userController = null;
 		
 		if (userType == 0) {

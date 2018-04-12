@@ -7,7 +7,7 @@ public class Recommend {
 	private String customerId;
 	private List<String> genrePrfnceList;
 	private List<String> languagePrfrnceList;
-	private List<String> yearPrfrnceList;
+	private List<Integer> yearPrfrnceList;
 	private List<String> watchedList;
 	
 	public String getCustomerId() {
@@ -28,10 +28,10 @@ public class Recommend {
 	public void setLanguagePrfrnceList(List<String> languagePrfrnceList) {
 		this.languagePrfrnceList = languagePrfrnceList;
 	}
-	public List<String> getYearPrfrnceList() {
+	public List<Integer> getYearPrfrnceList() {
 		return yearPrfrnceList;
 	}
-	public void setYearPrfrnceList(List<String> yearPrfrnceList) {
+	public void setYearPrfrnceList(List<Integer> yearPrfrnceList) {
 		this.yearPrfrnceList = yearPrfrnceList;
 	}
 	public List<String> getWatchedList() {

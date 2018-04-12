@@ -1,7 +1,7 @@
 package moviePackage;
 
 public class Admin extends User {
-	
+
 	private int role;
 
 	public int getRole() {
@@ -12,3 +12,4 @@ public class Admin extends User {
 		this.role = role;
 	}
 }
+	
