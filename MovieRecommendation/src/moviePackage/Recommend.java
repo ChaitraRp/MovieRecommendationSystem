@@ -43,6 +43,7 @@ public class Recommend {
 	
 	public List<Movie> getRecmdMovies(String customerId) {
 		//TODO
+		return null;
 	}
 	
 }
