@@ -38,4 +38,21 @@ public class CustomerService extends UserService {
 		 */
 		return null;
 	}
+
+	public void displayCustomerDetails(String custID) {
+		/*
+		 * Make database connection. Probably make a singleton class for getting te database connection object.
+		 * select customer details from User Table with the given custID
+		 * print it out.
+		 */
+	}
+
+	public Movie getMovieDetails(String movieId) {
+		/*
+		 * Make database connection. Probably make a singleton class for getting te database connection object.
+		 * select movie details from Movie Table with the given movieID
+		 * return movie details
+		 */
+		return null;
+	}
 }

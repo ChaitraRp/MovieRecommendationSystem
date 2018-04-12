@@ -5,6 +5,7 @@ public abstract class UserController {
 	public Customer logic(String username, String password) {
 		return UserService.validateUser(username, password);
 	}
+	
 	public Boolean isLoggedIn(int customerID) {
 		return UserService.isLoggedIn(customerID);
 	}
@@ -23,5 +24,5 @@ public abstract class UserController {
 	}
 	
 	abstract String getHomePage();
-	abstract String getCustomerAccountPage();
+	abstract String getUserAccountPage();
 }

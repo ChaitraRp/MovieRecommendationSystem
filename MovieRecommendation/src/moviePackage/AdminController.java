@@ -2,6 +2,8 @@ package moviePackage;
 
 public class AdminController extends UserController {
 
+	CustomerService adminService = (CustomerService) UserServiceFactory.getUserService(2);
+	
 	@Override
 	String getHomePage() {
 		// TODO Auto-generated method stub
@@ -9,9 +11,16 @@ public class AdminController extends UserController {
 	}
 
 	@Override
-	String getCustomerAccountPage() {
+	String getUserAccountPage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	public void getCustomerDetails(String custID) {
+		adminService.displayCustomerDetails(custID);
+	}
+	
+	public Movie getMovieDetails(String MovieId) {
+		return adminService.getMovieDetails(MovieId);
+	}
 }

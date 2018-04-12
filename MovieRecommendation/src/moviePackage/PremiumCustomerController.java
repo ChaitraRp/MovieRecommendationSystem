@@ -11,9 +11,15 @@ public class PremiumCustomerController extends UserController {
 	}
 
 	@Override
-	String getCustomerAccountPage() {
+	String getUserAccountPage() {
 		// TODO Auto-generated method stub
+		// This menu should also have "Update to Premium" with options of 1/3/6/9/12 months
 		return null;
+	}
+	
+	public boolean updateToPremium(Customer customer, int planId) {
+		PaymentController paymentController = new PaymentController();
+		return paymentController.buyPlan(customer, planId) ;
 	}
 
 }
