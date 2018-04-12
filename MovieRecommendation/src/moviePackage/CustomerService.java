@@ -4,11 +4,12 @@ import java.util.List;
 
 public class CustomerService extends UserService {
 	
-	public void signUpUser(Customer customer) {
+	public Boolean signUpUser(Customer customer) {
 		/* TODO
 		 * Make database connection.
 		 * Then insert a row in UserInfo table.
 		 */
+		return true;
 	}
 	
 	public Boolean deleteCustomerAccount(Customer customer) {
