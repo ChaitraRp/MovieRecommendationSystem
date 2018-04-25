@@ -1,0 +1,44 @@
+package mrsapi.packagee;
+
+import java.util.List;
+
+public class RecommendationService {
+	public Boolean updateCsmtPrefnce(Recommend rec, String custID) {
+		/*
+		 * make database connection.
+		 * take values from the rec which is of type Recommend
+		 * update these values into the database
+		 * if update was successful, return true, else return false
+		 */
+		return null;
+	}
+	
+	public Boolean updateRecmdnList(String custID) {
+		/*
+		 * make database connection.
+		 * after updating customer preference, a new recommendation list has to be generated 
+		 * display this new list to the customer
+		 * if update was successful, return true, else return false
+		 */
+		return null;
+	}
+	
+	public Boolean updateWatchedMovieList(List<String> watchedList, String custID) {
+		/* make database connection
+		 * watchedList contains all the movies that the customer has watched so far
+		 * take this list and update it into the database
+		 * if update was successful, return true, else return false
+		 */
+		return null;
+	}	
+	
+	public List<Movie> downloadRecmdedMovieList(String customerID) {
+		/*
+		 * make database connection
+		 * get latest recommendation list from the database
+		 * add functionality to download the list obtained
+		 * return this list
+		 */
+		return null;
+	}
+}
