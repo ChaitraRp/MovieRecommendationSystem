@@ -2,6 +2,9 @@ package mrsapi.packagee;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class RecommendationService {
 	public Boolean updateCsmtPrefnce(Recommend rec, String custID) {
 		/*

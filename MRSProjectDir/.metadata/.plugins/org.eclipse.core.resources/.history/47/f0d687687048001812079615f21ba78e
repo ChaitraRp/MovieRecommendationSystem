@@ -1,0 +1,37 @@
+package mrsapi.packagee;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/AdminController")
+public class AdminController extends UserController {
+
+	@Autowired
+	private CustomerService adminService;// = (CustomerService) UserServiceFactory.getUserService(2);
+	
+	@Override
+	@RequestMapping("/getHomePage")
+	String getHomePage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("/getAccountPage")
+	String getUserAccountPage() {
+		//Create a new admin?
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@RequestMapping("/getCustDetails/{user,pwd}")
+	public void getCustomerDetails(String custID) {
+		adminService.displayCustomerDetails(custID);
+	}
+	
+	@RequestMapping("/getMovies")
+	public Movie getMovieDetails(String MovieId) {
+		return adminService.getMovieDetails(MovieId);
+	}
+}

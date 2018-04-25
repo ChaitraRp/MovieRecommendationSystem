@@ -1,5 +1,8 @@
 package mrsapi.packagee;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
 
 	public static Customer validateUser(String username, String password) {

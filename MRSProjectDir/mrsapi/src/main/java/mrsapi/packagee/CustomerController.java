@@ -3,28 +3,42 @@ package mrsapi.packagee;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController("/CustomerController")
 public class CustomerController extends UserController {
 
-	private CustomerService customerService = (CustomerService) UserServiceFactory.getUserService(1);
+	@Autowired
+	private CustomerService customerService;// = (CustomerService) UserServiceFactory.getUserService(1);
 	
 	@Override
+	@RequestMapping("/getHomePage")
 	String getHomePage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	@Override 
+	@RequestMapping("/getAccountPage")
 	String getUserAccountPage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	@RequestMapping("/deleteAccount")
 	public Boolean deleteAccount(Customer customer) {
 		customerService.deleteCustomerAccount(customer);
 		return true;
 	}
 	
-	public void getMoviePrfencesPage(Customer customer) {
+	//Check class diagram
+	@RequestMapping("/getMoviePrfcsPage/{custID}")
+	public void getMoviePrfencesPage(String custID) {
 		int updatePreferances = 0;
 		/*
 		 * Prompt user with the different genres of movies that we have.
@@ -41,13 +55,17 @@ public class CustomerController extends UserController {
 			 * Prompt him to select the year List
 			 */
 			RecommendationController rcmdationController = new RecommendationController();
-			rcmdationController.updatePreferences(genreList, languageList, yearList, customer.getUserId());
+			rcmdationController.updatePreferences(genreList, languageList, yearList, custID);
 		}
 	}
 	
+	@RequestMapping("/getMovies")
 	public void viewAllMovieList() {
 		MovieService movieService = new MovieService();
 		movieService.showAllMovies();
 	} 
 	
+	public static void main(String[] args) {
+		SpringApplication.run(CustomerController.class, args);
+	}
 }

@@ -1,23 +1,34 @@
 package mrsapi.packagee;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController("/RcmdController")
 public class RecommendationController {
-	//private RecommendationService recmdService;
 	
-	public void updatePreferences(List<String> genreList, List<String> languageList, List<Integer> yearList, String custID) {
+	@Autowired
+	private RecommendationService recmdService;
+	
+	//Check class diagram
+	@RequestMapping("/updatePrfrnce/{genre, language, year, custID}")
+	public void updatePreferences(String genre, String language, Integer year, String custID) {
 		//TODO
 	}
 	
-	public void updateWatchedMovieList(List<String> watchedMovieList) {
+	//Check class diagram
+	@RequestMapping("/updateWatchList/{movieId}")
+	public void updateWatchedMovieList(String movieId) {
 		//TODO
 	}
 	
+	@RequestMapping("updateMovieRating/{movieID, rating, custID}")
 	public void updateMovieRating(String movieID, int rating, String custID) {
 		//TODO
 	}
 	
-	public void downloadRecmdedMovieList(String custId) {
-		//TODO
-	}
+	//Check class diagram
+//	public void downloadRecmdedMovieList(String custId) {
+//		//TODO
+//	}
 }

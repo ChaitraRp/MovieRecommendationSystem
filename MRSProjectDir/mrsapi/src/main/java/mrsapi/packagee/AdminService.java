@@ -1,5 +1,8 @@
 package mrsapi.packagee;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class AdminService extends UserService {
 	
 	public void addMovieDetails(Movie movie) {
