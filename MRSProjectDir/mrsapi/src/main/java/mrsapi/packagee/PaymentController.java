@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController("/PaymentController")
 public class PaymentController {
-	public Boolean buyPlan(String cust, int planID) {
+	public Boolean buyPlan(Customer customer, int planID) {
 		//TODO
 		return null;
 	}

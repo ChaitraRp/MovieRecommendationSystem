@@ -1,11 +1,12 @@
 package mrsapi.packagee;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,27 +37,11 @@ public class CustomerController extends UserController {
 		return true;
 	}
 	
-	//Check class diagram
 	@RequestMapping("/getMoviePrfcsPage/{custID}")
-	public void getMoviePrfencesPage(String custID) {
-		int updatePreferances = 0;
-		/*
-		 * Prompt user with the different genres of movies that we have.
-		 * Then ask him if he would like to update his preferences
-		 */
-		
-		if (updatePreferances == 1) {
-			List<String> genreList = new ArrayList<String>();
-			List<String> languageList = new ArrayList<String>();
-			List<Integer> yearList = new ArrayList<Integer>();
-			/*
-			 * Prompt him to select the genre List
-			 * Prompt him to select the language List
-			 * Prompt him to select the year List
-			 */
-			RecommendationController rcmdationController = new RecommendationController();
-			rcmdationController.updatePreferences(genreList, languageList, yearList, custID);
-		}
+	public Map<String, String> getMoviePrfencesPage(@PathVariable String custID) {
+		Map<String, String> preferances = new HashMap<String, String>();
+		//The function returns the preferences set by the user.
+		return preferances;
 	}
 	
 	@RequestMapping("/getMovies")

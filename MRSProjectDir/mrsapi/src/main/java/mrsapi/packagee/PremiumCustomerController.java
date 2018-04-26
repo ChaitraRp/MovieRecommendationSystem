@@ -25,11 +25,9 @@ public class PremiumCustomerController extends UserController {
 		return null;
 	}
 	
-	//Check class diagram
-	@RequestMapping("/updateToPremium/{custId, planId}")
-	public boolean updateToPremium(String custId, int planId) {
+	public boolean updateToPremium(Customer customer, int planId) {
 		PaymentController paymentController = new PaymentController();
-		return paymentController.buyPlan(custId, planId) ;
+		return paymentController.buyPlan(customer, planId) ;
 	}
 
 }
