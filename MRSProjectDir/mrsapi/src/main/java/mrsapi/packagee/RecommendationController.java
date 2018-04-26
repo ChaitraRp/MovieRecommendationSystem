@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/RcmdController")
+@RestController
+@RequestMapping("/RcmdController")
 public class RecommendationController {
 	
 	@Autowired
 	private RecommendationService recmdService;
+	
 	
 	public void updatePreferences(List<String> genreList, List<String> languageList, List<Integer> yearList, String custID) {
 		Recommend rec = new Recommend();

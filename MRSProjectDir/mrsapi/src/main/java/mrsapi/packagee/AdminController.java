@@ -1,10 +1,14 @@
 package mrsapi.packagee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/AdminController")
+@RestController
+@RequestMapping("/AdminController")
 public class AdminController extends UserController {
 
 	@Autowired
@@ -18,20 +22,20 @@ public class AdminController extends UserController {
 	}
 
 	@Override
-	@RequestMapping("/getAccountPage")
-	String getUserAccountPage() {
+	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
+	String getUserAccountPage(@RequestBody Customer customer) {
 		//Create a new admin?
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	@RequestMapping("/getCustDetails/{user,pwd}")
-	public void getCustomerDetails(String custID) {
-		adminService.displayCustomerDetails(custID);
+	@RequestMapping(method=RequestMethod.POST, value="/getCustDetails")
+	public void getCustomerDetails(@RequestBody Customer customer) {
+		adminService.displayCustomerDetails(customer.getUserId());
 	}
 	
 	@RequestMapping("/getMovie/{movieId}")
-	public Movie getMovieDetails(String movieId) {
+	public Movie getMovieDetails(@PathVariable String movieId) {
 		return adminService.getMovieDetails(movieId);
 	}
 }

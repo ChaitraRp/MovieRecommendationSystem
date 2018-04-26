@@ -2,13 +2,19 @@ package mrsapi.packagee;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Recommend {
 	
+	@Id
+	private String id;
 	private String customerId;
 	private List<String> genrePrfnceList;
 	private List<String> languagePrfrnceList;
 	private List<Integer> yearPrfrnceList;
-	private List<String> watchedList;
+	private List<MoviesWatched> watchedList;
 	
 	public String getCustomerId() {
 		return customerId;
@@ -34,16 +40,10 @@ public class Recommend {
 	public void setYearPrfrnceList(List<Integer> yearPrfrnceList) {
 		this.yearPrfrnceList = yearPrfrnceList;
 	}
-	public List<String> getWatchedList() {
+	public List<MoviesWatched> getWatchedList() {
 		return watchedList;
 	}
-	public void setWatchedList(List<String> watchedList) {
+	public void setWatchedList(List<MoviesWatched> watchedList) {
 		this.watchedList = watchedList;
 	}
-	
-	public List<Movie> getRecmdMovies(String customerId) {
-		//TODO
-		return null;
-	}
-	
 }

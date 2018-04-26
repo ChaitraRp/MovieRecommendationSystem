@@ -1,9 +1,14 @@
 package mrsapi.packagee;
 
+import javax.persistence.Id;
+
+
 public abstract class User {
+	
+	@Id
+	protected String userId;
 	protected String username;		//Email id of user.
 	protected String password;
-	protected String userId;
 	protected Boolean accountAlive;
 	protected int userType;
 	

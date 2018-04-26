@@ -2,6 +2,9 @@ package mrsapi.packagee;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Customer extends User {
 
 	private String name;
@@ -26,6 +29,10 @@ public class Customer extends User {
 		return name;
 	}
 
+	public String getCustomerId() {
+		return getUserId();
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}

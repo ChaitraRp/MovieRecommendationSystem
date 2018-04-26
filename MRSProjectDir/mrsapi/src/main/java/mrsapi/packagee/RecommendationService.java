@@ -44,4 +44,9 @@ public class RecommendationService {
 		 */
 		return null;
 	}
+	
+	public List<Movie> getRecmdMovies(String customerId) {
+		//TODO
+		return null;
+	}
 }
