@@ -1,15 +1,11 @@
 package mrsapi.packagee;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
 public abstract class UserController {
 	
-	@RequestMapping("/login")	//TODO
-	public Customer login(String username, String password) {
+	public Customer logic(String username, String password) {
 		return UserService.validateUser(username, password);
 	}
 	
-	@RequestMapping("/isLoggedIn/{custID}")
 	public Boolean isLoggedIn(String customerID) {
 		return UserService.isLoggedIn(customerID);
 	}
