@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 public class MovieService {
 	
 	@Autowired
-	MovieRepository movieRepository;
+	private MovieRepository movieRepository;
 	
 	public void addMovieDetails(Movie mov) {
 		try {
 			movieRepository.save(mov);
 		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Error In adding Movie: " + e.getMessage());
 		}
 	}
 	

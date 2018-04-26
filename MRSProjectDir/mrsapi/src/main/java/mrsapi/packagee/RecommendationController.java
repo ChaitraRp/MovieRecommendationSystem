@@ -14,7 +14,7 @@ public class RecommendationController {
 	private RecommendationService recmdService;
 	
 	
-	public void updatePreferences(List<String> genreList, List<String> languageList, List<Integer> yearList, String custID) {
+	public void updatePreferences(String genreList, String languageList, String yearList, String custID) {
 		Recommend rec = new Recommend();
 		rec.setGenrePrfnceList(genreList);
 		rec.setLanguagePrfrnceList(languageList);

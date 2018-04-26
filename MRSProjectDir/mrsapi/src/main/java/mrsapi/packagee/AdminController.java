@@ -20,16 +20,15 @@ public class AdminController extends UserController {
 	@Override
 	@RequestMapping("/getHomePage")
 	String getHomePage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Welcome to Customer Home Page. This is the Best Movie Recommendation System that you can find"
+				+ "We have thousands of movies, ratings in all languages and generes"
+				+ "Specially curated movie List, according to your preferances. Join Now!!!";
 	}
 
-	@Override
+	@Override 
 	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
-	String getUserAccountPage(@RequestBody Customer customer) {
-		//Create a new admin?
-		// TODO Auto-generated method stub
-		return null;
+	public Customer getUserAccountPage(@RequestBody Customer customer) {
+		return adminService.displayCustomerDetails(customer.getId());
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/getCustDetails")

@@ -1,7 +1,5 @@
 package mrsapi.packagee;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,39 +9,48 @@ public class Recommend {
 	@Id
 	private String id;
 	private String customerId;
-	private List<String> genrePrfnceList;
-	private List<String> languagePrfrnceList;
-	private List<Integer> yearPrfrnceList;
-	private List<MoviesWatched> watchedList;
+	private String genrePrfnceList;
+	private String languagePrfrnceList;
+	private String yearPrfrnceList;
+	private String watchedList;
 	
+		
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	public List<String> getGenrePrfnceList() {
+	public String getGenrePrfnceList() {
 		return genrePrfnceList;
 	}
-	public void setGenrePrfnceList(List<String> genrePrfnceList) {
+	public void setGenrePrfnceList(String genrePrfnceList) {
 		this.genrePrfnceList = genrePrfnceList;
 	}
-	public List<String> getLanguagePrfrnceList() {
+	public String getLanguagePrfrnceList() {
 		return languagePrfrnceList;
 	}
-	public void setLanguagePrfrnceList(List<String> languagePrfrnceList) {
+	public void setLanguagePrfrnceList(String languagePrfrnceList) {
 		this.languagePrfrnceList = languagePrfrnceList;
 	}
-	public List<Integer> getYearPrfrnceList() {
+	public String getYearPrfrnceList() {
 		return yearPrfrnceList;
 	}
-	public void setYearPrfrnceList(List<Integer> yearPrfrnceList) {
+	public void setYearPrfrnceList(String yearPrfrnceList) {
 		this.yearPrfrnceList = yearPrfrnceList;
 	}
-	public List<MoviesWatched> getWatchedList() {
+	public String getWatchedList() {
 		return watchedList;
 	}
-	public void setWatchedList(List<MoviesWatched> watchedList) {
+	public void setWatchedList(String watchedList) {
 		this.watchedList = watchedList;
 	}
+	
+	
 }

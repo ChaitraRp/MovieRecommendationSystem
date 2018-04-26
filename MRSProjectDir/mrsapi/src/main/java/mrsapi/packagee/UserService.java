@@ -1,28 +1,43 @@
 package mrsapi.packagee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-	public static Customer validateUser(String username, String password) {
+	@Autowired
+	public CustomerRepository customerRepository;
+
+	@Autowired
+	MovieService movieService;
+
+	public Customer validateUser(String username, String password) {
 		Customer customer = null;
-		//TODO
 		return customer;
 	}
-	
-	public static Boolean isLoggedIn(String customerID) {
-		/*
-		 * 
-		 * Check in database if given customerID is currently loggedIn.
-		 */
-		return true;
+
+	public Boolean isLoggedIn(String customerID) {
+		Customer customer = null;
+		customer = customerRepository.findOne(customerID);
+		if (customer.getAccountAlive() == 1) {
+			return true;
+		}
+		return false;
 	}
-	
-	public static Boolean updatePassword(String username, String newPassword) {
-		/* TODO
-		 * Update the password of the given userId
-		 */
-		return true;
+
+	public Boolean updatePassword(Customer customer, String newPassword) {
+		Customer customerExist = null;
+		try {
+			customerExist = customerRepository.findOne(customer.getCustomerId());
+			if (customerExist != null) {
+				customerExist.setPassword(newPassword);
+				customerRepository.save(customerExist);
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("Error while updating the password" + e.getMessage());
+		}
+		return false;
 	}
 }

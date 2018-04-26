@@ -25,12 +25,10 @@ public class PremiumCustomerController extends UserController {
 		return null;
 	}
 
-	@Override
+	@Override 
 	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
-	String getUserAccountPage(@RequestBody Customer customer) {
-		// TODO Auto-generated method stub
-		// This menu should also have "Update to Premium" with options of 1/3/6/9/12 months
-		return null;
+	public Customer getUserAccountPage(@RequestBody Customer customer) {
+		return premiumCustomerService.displayCustomerDetails(customer.getId());
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{planId}")

@@ -7,11 +7,22 @@ public abstract class User {
 	
 	@Id
 	protected String userId;
-	protected String username;		//Email id of user.
+	protected String username;			//Email id of user.
 	protected String password;
-	protected Boolean accountAlive;
-	protected int userType;
+	protected Integer accountAlive; 	//0: dead, 1:alive
+	protected Integer userType;			// 0: Premium, 1: Normal
 	
+	public User() {
+		accountAlive = 1;
+		userType = 1;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -24,24 +35,18 @@ public abstract class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public Boolean getAccountAlive() {
+	public Integer getAccountAlive() {
 		return accountAlive;
 	}
-	public void setAccountAlive(Boolean accountAlive) {
+	public void setAccountAlive(Integer accountAlive) {
 		this.accountAlive = accountAlive;
 	}
-	public int getUserType() {
+	public Integer getUserType() {
 		return userType;
 	}
-	public void setUserType(int userType) {
+	public void setUserType(Integer userType) {
 		this.userType = userType;
 	}
-
+	
 	
 }
