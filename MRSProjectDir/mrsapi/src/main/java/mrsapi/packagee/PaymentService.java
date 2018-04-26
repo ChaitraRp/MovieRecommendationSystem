@@ -13,7 +13,7 @@ public class PaymentService {
 		return null;
 	}
 	
-	public Boolean processPayment(Payment pay, String paymentDetails, Customer cust) {
+	public static Boolean processPayment(Payment pay, String paymentDetails, Customer cust) {
 		/*
 		 * make database connection.
 		 * take required values from payment class, and club it with paymentDetails 
