@@ -1,40 +1,57 @@
 package mrsapi.packagee;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MovieService {
+	
+	@Autowired
+	MovieRepository movieRepository;
+	
 	public void addMovieDetails(Movie mov) {
-		/*
-		 * make database connection.
-		 * fetch all details from the Movie class and add this to the database
-		 */
+		try {
+			movieRepository.save(mov);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
 	}
 	
 	public Boolean updateMovieDetails(Movie mov) {
-		/*
-		 * make database connection.
-		 * take movieid from Movie and update that particular row in database
-		 * if update is successful, return true, else return false
-		 */
-		return null;
+		try {
+			movieRepository.save(mov);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+		return true;
 	}
 	
 	public Boolean updateMovieRating(String movieID, int rating) {
-		/*
-		 * make database connection
-		 * movieRatingMap has movie id and rating
-		 * the database should be updated with new rating for the movieid
-		 * if update was successful, return true, else return false
-		 */
-		return null;
+		try {
+			Movie movie = movieRepository.findOne(movieID);
+			movie.setRating(rating);
+			movieRepository.save(movie);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+		return true;
 	}
 
-	public void showAllMovies() {
-		/*
-		 * make database connection
-		 * select all movies from movie table
-		 * display the list.
-		 */
+	public List<Movie> showAllMovies() {
+		List<Movie> movieList = new ArrayList<Movie>();
+		
+		movieRepository.findAll()
+		.forEach(movieList::add);
+		
+		return movieList;
+	}
+	
+	public Movie getMovieDetails(String movieId) {
+		return movieRepository.findOne(movieId);
 	}
 }

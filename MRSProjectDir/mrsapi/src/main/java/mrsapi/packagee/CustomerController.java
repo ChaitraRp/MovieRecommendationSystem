@@ -51,5 +51,5 @@ public class CustomerController extends UserController {
 	@RequestMapping("/getMovies")
 	public void viewAllMovieList() {
 		movieService.showAllMovies();
-	} 
+	}
 }

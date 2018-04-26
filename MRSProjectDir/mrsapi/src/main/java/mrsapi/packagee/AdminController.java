@@ -14,6 +14,9 @@ public class AdminController extends UserController {
 	@Autowired
 	private CustomerService adminService;// = (CustomerService) UserServiceFactory.getUserService(2);
 	
+	@Autowired
+	private MovieService movieService;
+	
 	@Override
 	@RequestMapping("/getHomePage")
 	String getHomePage() {
@@ -36,6 +39,6 @@ public class AdminController extends UserController {
 	
 	@RequestMapping("/getMovie/{movieId}")
 	public Movie getMovieDetails(@PathVariable String movieId) {
-		return adminService.getMovieDetails(movieId);
+		return movieService.getMovieDetails(movieId);
 	}
 }

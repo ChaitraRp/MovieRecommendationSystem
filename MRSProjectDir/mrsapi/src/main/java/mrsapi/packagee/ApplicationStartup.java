@@ -1,8 +1,12 @@
 package mrsapi.packagee;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class ApplicationStartup {
+	
+	@Autowired
+	static MovieService movieService;
 
 	public static List<String> genres = new ArrayList<String>();
 	public static List<Integer> years = new ArrayList<Integer>();
@@ -61,8 +68,28 @@ public class ApplicationStartup {
 		return "Welcome to Movie Recommendation System";
 	}
 	
+	public static void addMovieDetails() {
+		String files = "/home/vipra/MovieRecommendationSystem/IMDB_data.csv";
+		try (BufferedReader br = new BufferedReader(new FileReader(files))) {
+
+			String sCurrentLine;
+
+			while ((sCurrentLine = br.readLine()) != null) {
+				
+				Movie movie = new Movie();
+				movieService.addMovieDetails(movie);
+				System.out.println(sCurrentLine);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	
 	public static void main(String[] args) {
+		addMovieDetails();
 		loadGenres();
 		loadYears();
 		loadLanguage();

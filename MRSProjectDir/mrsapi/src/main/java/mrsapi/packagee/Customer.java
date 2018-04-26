@@ -9,20 +9,39 @@ public class Customer extends User {
 
 	private String name;
 	private String phoneNum;
-	private int cutomerType;		// 0: Premium, 1: Normal
+	private int customerType;		// 0: Premium, 1: Normal
+	int planId;		//{0: NormalCustomer, 3: 3months, 6: 6months, 9: 9months, 1:1year}
 	private List<Recommend> recmdMovieList;
 	
 	public Customer() {
 		super();
-		cutomerType = 1;
+		customerType = 1;
+		planId = 0;
 	}
 	
-	public Customer(String name, String phoneNum, int cutomerType, List<Recommend> recmdMovieList) {
+	public Customer(String name, String phoneNum, int customerType, int planId, List<Recommend> recmdMovieList) {
 		super();
 		this.name = name;
 		this.phoneNum = phoneNum;
-		this.cutomerType = cutomerType;
+		this.customerType = customerType;
+		this.planId = planId;
 		this.recmdMovieList = recmdMovieList;
+	}
+
+	public int getCustomerType() {
+		return customerType;
+	}
+
+	public void setCustomerType(int customerType) {
+		this.customerType = customerType;
+	}
+
+	public int getPlanId() {
+		return planId;
+	}
+
+	public void setPlanId(int planId) {
+		this.planId = planId;
 	}
 
 	public String getName() {
@@ -46,11 +65,11 @@ public class Customer extends User {
 	}
 
 	public int getCutomerType() {
-		return cutomerType;
+		return customerType;
 	}
 
 	public void setCutomerType(int cutomerType) {
-		this.cutomerType = cutomerType;
+		this.customerType = cutomerType;
 	}
 
 	public List<Recommend> getRecmdMovieList() {
