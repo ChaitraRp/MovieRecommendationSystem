@@ -33,9 +33,9 @@ public class PremiumCustomerController extends UserController {
 		return premiumCustomerService.displayCustomerDetails(customerId);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{planId}")
-	public boolean updateToPremium(@RequestBody Customer customer,@PathVariable int planId) {
-		return paymentController.buyPlan(customer, planId) ;
+	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{userAnswer}")
+	public String updateToPremium(@RequestBody Customer customer,@PathVariable String userAnswer) {
+		return paymentController.buyPlan(customer, userAnswer);
 	}
 
 }
