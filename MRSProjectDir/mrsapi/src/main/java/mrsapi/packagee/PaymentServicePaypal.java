@@ -22,13 +22,13 @@ public class PaymentServicePaypal extends PaymentService {
 		String password = paymentDetails[1];
 		double amount = pay.getAmount();
 		
-		//test card values hardcoded
+		//test card values hard coded
 		String testUN = "chaitra";
 		String testPwd = "1234";
 		double testAmount = 99.99;
 		
 		//check for validity
-		if(username == testUN && password == testPwd && amount == testAmount) {
+		if(username.equals(testUN) && password.equals(testPwd) && amount == testAmount) {
 			return true;
 		}
 		else

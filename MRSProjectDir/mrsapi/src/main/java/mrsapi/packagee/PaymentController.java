@@ -32,16 +32,18 @@ public class PaymentController {
 	
 	//done here
 	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/processPayment")
-	public void processPayment(@RequestBody Payment payment) {
+	public String processPayment(@RequestBody Payment payment) {
 		boolean isPaymentProcessed = false;
 		String paymentType1 = "paypal";
-		if(payment.getPaymentDetails().toLowerCase().contains(paymentType1))
+		if(payment.getPaymentDetails().toLowerCase().equals(paymentType1))
 			isPaymentProcessed = paymentServicePaypal.processPayment(payment);
 		else
 			isPaymentProcessed = paymentServiceCreditCard.processPayment(payment);
 		
 		if(isPaymentProcessed)
-			this.showPaymentSuccess();
+			return(this.showPaymentSuccess());
+		else
+			return("Payment failed.");
 	}
 	
 	//done
