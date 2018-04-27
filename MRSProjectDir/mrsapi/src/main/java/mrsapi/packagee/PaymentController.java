@@ -1,62 +1,44 @@
 package mrsapi.packagee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Scanner;
 
 @SpringBootApplication
 @RestController
 @RequestMapping("/PremiumController")
 public class PaymentController {
+	@Autowired
+	private PaymentService paymentService;
 	
-	@RequestMapping(method=RequestMethod.POST, value="/buyPlan")
-	public boolean buyPlan(Customer customer, int planID) {
-		boolean isResponseValid;
-		Payment pay = new Payment();
-		
-		isResponseValid= checkAgreementResponse();
-		if(isResponseValid) {
-			boolean isPaymentProcessed = processPayment(pay, customer); //from where does this pay come from?
-			if(isPaymentProcessed)
-				return true;
-			else
-				return false;
-		}
-		else {
-			System.out.println("Agreement rejected. Cannot proceed further");
-			return false;
-		}
+	//done
+	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{userAnswer}")
+	public String buyPlan(@RequestBody Customer customer, @PathVariable String userAnswer) {
+		boolean isResponseValid = paymentService.checkAgreementResponse(userAnswer);
+		if(isResponseValid)
+			return "Agreement Accepted";
+		else
+			return "You need to accept the agreement to proceed";
 	}
 	
-	public boolean processPayment(Payment pay, Customer customer) {
-		String paymentType = pay.getPaymentMethod();
-		PaymentService.processPayment(pay, paymentType, customer);
-		return false;
+	//done here
+	@RequestMapping(method=RequestMethod.POST, value="/buyPlan/processPayment")
+	public void processPayment(@RequestBody Payment payment) {
+		boolean isPaymentProcessed = paymentService.checkPaymentType(payment);
+		if(isPaymentProcessed)
+			this.showPaymentSuccess();
 	}
 	
-	public void showPaymentSuccess() {
-		//TODO
+	//done
+	public String showPaymentSuccess() {
+		return "Payment is successful";
 	}
 	
 	public void processRefund(Payment pay) {
 		//TODO
-	}
-	
-	public boolean checkAgreementResponse() {
-		while(true) {
-			Scanner scanner = new Scanner(System.in);
-			System.out.print("I agree to the terms and conditions [y/n]: ");
-			String userAnswer = scanner.nextLine();
-			scanner.close();
-			if(userAnswer.toLowerCase() == "y")
-				return true;
-			else if(userAnswer == "n")
-				return false;
-			else
-				System.out.println("Invalid choice. Please enter y/n");
-		}
 	}
 }
