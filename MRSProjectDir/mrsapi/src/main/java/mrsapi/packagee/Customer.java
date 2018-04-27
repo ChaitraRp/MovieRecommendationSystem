@@ -12,21 +12,50 @@ public class Customer extends User {
 	private String name;
 	private String phoneNum;
 	int planId;		//{0: NormalCustomer, 3: 3months, 6: 6months, 9: 9months, 1:1year}
+	String languagePrfnce;
+	String yearPrfnce;
+	String genrePrfnce;
 	
-	
-	//private List<Recommend> recmdMovieList;
 	
 	public Customer() {
 		super();
 		planId = 0;
 	}
 	
-	public Customer(String name, String phoneNum, int planId) {//, List<Recommend> recmdMovieList) {
-		super();
+	public Customer(String customerId, String username, String password, String name, String phoneNum) {
+		super(username, password);
 		this.name = name;
 		this.phoneNum = phoneNum;
-		this.planId = planId;
-		//this.recmdMovieList = recmdMovieList;
+		setCustomerId(customerId);
+	}
+	
+	public String getLanguagePrfnce() {
+		return languagePrfnce;
+	}
+
+	public void setLanguagePrfnce(String languagePrfnce) {
+		this.languagePrfnce = languagePrfnce;
+	}
+
+	public String getYearPrfnce() {
+		return yearPrfnce;
+	}
+
+	public void setYearPrfnce(String yearPrfnce) {
+		this.yearPrfnce = yearPrfnce;
+	}
+
+	public String getGenrePrfnce() {
+		return genrePrfnce;
+	}
+
+	public void setGenrePrfnce(String genrePrfnce) {
+		this.genrePrfnce = genrePrfnce;
+	}
+
+	private void setCustomerId(String customerId) {
+		setUserId(customerId);
+		this.id = customerId;
 	}
 
 	public String getCustomerId() {
@@ -64,6 +93,4 @@ public class Customer extends User {
 	public void setPlanId(int planId) {
 		this.planId = planId;
 	}
-
-	
 }

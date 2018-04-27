@@ -33,9 +33,9 @@ public class CustomerController extends UserController {
 	}
 
 	@Override 
-	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
-	public Customer getUserAccountPage(@RequestBody Customer customer) {
-		return customerService.displayCustomerDetails(customer.getId());
+	@RequestMapping("/getAccountPage/{customerId}")
+	public Customer getUserAccountPage(@PathVariable String customerId) {
+		return customerService.displayCustomerDetails(customerId);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/deleteAccount")
@@ -51,10 +51,9 @@ public class CustomerController extends UserController {
 		return preferances;
 	}
 	
-	@RequestMapping("/addMovies")
-	public String AddAllMovieList() throws IOException {
-		return customerService.doWrok();
-		//movieService.showAllMovies();
+	@RequestMapping("/loadAllData")
+	public String loadData() throws IOException {
+		return customerService.doWork();
 	}
 	
 	@RequestMapping("/getAllMovieDetails")

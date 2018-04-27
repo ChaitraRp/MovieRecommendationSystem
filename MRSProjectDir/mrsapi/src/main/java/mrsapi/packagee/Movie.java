@@ -1,7 +1,9 @@
 package mrsapi.packagee;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Movie {
@@ -14,6 +16,9 @@ public class Movie {
     private String yyear;
     private String genre;
     private String language;
+    
+    @Column(columnDefinition="clob")
+    @Lob
     private String plot;
     
     public Movie() {

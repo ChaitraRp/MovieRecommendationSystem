@@ -26,9 +26,9 @@ public class AdminController extends UserController {
 	}
 
 	@Override 
-	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
-	public Customer getUserAccountPage(@RequestBody Customer customer) {
-		return adminService.displayCustomerDetails(customer.getId());
+	@RequestMapping(method=RequestMethod.GET, value="/getAccountPage/{customerId}")
+	public Customer getUserAccountPage(@PathVariable String customerId) {
+		return adminService.displayCustomerDetails(customerId);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/getCustDetails")

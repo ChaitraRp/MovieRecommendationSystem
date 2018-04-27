@@ -26,21 +26,21 @@ public abstract class UserController {
 	
 	@RequestMapping(method=RequestMethod.POST, value="/signup")
 	public Boolean signUp(@RequestBody Customer customer) {
-		//Anupama
 		//CustomerService customerService = (CustomerService) UserServiceFactory.getUserService(customer.getUserType());
 		return customerService.signUpUser(customer);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/updatePassword/{newPassword}")
-	public boolean updatePassword(Customer customer, @PathVariable String newPassword) {
-		
+	public boolean updatePassword(@RequestBody Customer customer, @PathVariable String newPassword) {
+		System.out.println("In update Password");
 		Customer validUser = userService.validateUser(customer.getUsername(), customer.getPassword());
 		if (validUser != null) {
+			System.out.println("Found the user. User is valid");
 			return userService.updatePassword(customer, newPassword);
 		}
 		return false;
 	}
 	
 	abstract String getHomePage();
-	abstract Customer getUserAccountPage(Customer customer);
+	abstract Customer getUserAccountPage(String customerId);
 }

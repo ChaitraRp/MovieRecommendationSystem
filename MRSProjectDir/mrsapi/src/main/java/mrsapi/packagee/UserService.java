@@ -14,25 +14,36 @@ public class UserService {
 
 	public Customer validateUser(String username, String password) {
 		Customer customer = null;
-		return customer;
+		customer = customerRepository.findByUsername(username);
+		System.out.println("sent username: " + username);
+		System.out.println("sent password: " + password);
+		
+		if (customer == null) {
+			System.out.println("Customer doesn't exist");
+		} else {
+			System.out.println("Username found, password is: " + customer.getPassword());
+		}
+		
+		if (customer != null && customer.getPassword().equals(password)) {
+			return customer;
+		}
+		return null;
 	}
 
 	public Boolean isLoggedIn(String customerID) {
 		Customer customer = null;
 		customer = customerRepository.findOne(customerID);
-		if (customer.getAccountAlive() == 1) {
+		if (customer != null && customer.getAccountAlive() == 1) {
 			return true;
 		}
 		return false;
 	}
 
 	public Boolean updatePassword(Customer customer, String newPassword) {
-		Customer customerExist = null;
 		try {
-			customerExist = customerRepository.findOne(customer.getCustomerId());
-			if (customerExist != null) {
-				customerExist.setPassword(newPassword);
-				customerRepository.save(customerExist);
+			if (customer != null) {
+				customer.setPassword(newPassword);
+				customerRepository.save(customer);
 				return true;
 			}
 		} catch (Exception e) {

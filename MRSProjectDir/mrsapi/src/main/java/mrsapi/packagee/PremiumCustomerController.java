@@ -20,15 +20,17 @@ public class PremiumCustomerController extends UserController {
 	
 	@Override
 	@RequestMapping("/getHomePage")
-	String getHomePage() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getHomePage() {
+		return "Welcome to Customer Home Page. This is the Best Movie Recommendation System that you can find"
+				+ "We have thousands of movies, ratings in all languages and generes"
+				+ "Specially curated movie List, according to your preferances. Join Now!!!";
+
 	}
 
 	@Override 
-	@RequestMapping(method=RequestMethod.POST, value="/getAccountPage")
-	public Customer getUserAccountPage(@RequestBody Customer customer) {
-		return premiumCustomerService.displayCustomerDetails(customer.getId());
+	@RequestMapping(method=RequestMethod.GET, value="/getAccountPage/{customerId}")
+	public Customer getUserAccountPage(@PathVariable String customerId) {
+		return premiumCustomerService.displayCustomerDetails(customerId);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{planId}")
