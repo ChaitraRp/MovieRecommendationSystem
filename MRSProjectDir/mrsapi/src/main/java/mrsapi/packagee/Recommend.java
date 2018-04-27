@@ -1,56 +1,45 @@
 package mrsapi.packagee;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Recommend {
-	
-	@Id
-	private String id;
+
 	private String customerId;
-	private String genrePrfnceList;
-	private String languagePrfrnceList;
-	private String yearPrfrnceList;
-	private String watchedList;
+	private String genrePrfnce;
+	private String languagePrfrnce;
+	private String yearPrfrnce;
+	private String watchedMovies;
 	
-		
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	public String getGenrePrfnceList() {
-		return genrePrfnceList;
+	public String getGenrePrfnce() {
+		return genrePrfnce;
 	}
-	public void setGenrePrfnceList(String genrePrfnceList) {
-		this.genrePrfnceList = genrePrfnceList;
+	public void setGenrePrfnce(String genrePrfnce) {
+		this.genrePrfnce = genrePrfnce;
 	}
-	public String getLanguagePrfrnceList() {
-		return languagePrfrnceList;
+	public String getLanguagePrfrnce() {
+		return languagePrfrnce;
 	}
-	public void setLanguagePrfrnceList(String languagePrfrnceList) {
-		this.languagePrfrnceList = languagePrfrnceList;
+	public void setLanguagePrfrnce(String languagePrfrnce) {
+		this.languagePrfrnce = languagePrfrnce;
 	}
-	public String getYearPrfrnceList() {
-		return yearPrfrnceList;
+	public String getYearPrfrnce() {
+		return yearPrfrnce;
 	}
-	public void setYearPrfrnceList(String yearPrfrnceList) {
-		this.yearPrfrnceList = yearPrfrnceList;
+	public void setYearPrfrnce(String yearPrfrnce) {
+		this.yearPrfrnce = yearPrfrnce;
 	}
-	public String getWatchedList() {
-		return watchedList;
+	public String getWatchedMovies() {
+		return watchedMovies;
 	}
-	public void setWatchedList(String watchedList) {
-		this.watchedList = watchedList;
+	public void setWatchedMovies(String watchedMovies) {
+		this.watchedMovies = watchedMovies;
 	}
 	
+		
 	
 }

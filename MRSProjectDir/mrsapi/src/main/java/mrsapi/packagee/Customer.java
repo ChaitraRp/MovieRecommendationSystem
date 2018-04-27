@@ -15,6 +15,7 @@ public class Customer extends User {
 	String languagePrfnce;
 	String yearPrfnce;
 	String genrePrfnce;
+	String watchedList;
 	
 	
 	public Customer() {
@@ -29,6 +30,15 @@ public class Customer extends User {
 		setCustomerId(customerId);
 	}
 	
+	
+	public String getWatchedList() {
+		return watchedList;
+	}
+
+	public void setWatchedList(String watchedList) {
+		this.watchedList = watchedList;
+	}
+
 	public String getLanguagePrfnce() {
 		return languagePrfnce;
 	}
