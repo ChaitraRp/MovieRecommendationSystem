@@ -8,10 +8,6 @@ public abstract class PaymentService {
 	
 	@Autowired
 	private PaymentRepository paymentRepository;
-	@Autowired
-	private PaymentServicePaypal paymentServicePaypal;
-	@Autowired
-	private PaymentServiceCreditCard paymentServiceCreditCard;
 	
 	//final template method
 	public final void templateMethods(Payment pay) {
@@ -25,18 +21,7 @@ public abstract class PaymentService {
 	protected abstract boolean isPaymentValid(Payment pay);
 	protected abstract boolean processRefund(Payment pay);
 	
-	//All other concrete methods goes here
-	//done
-	public boolean checkPaymentType(Payment payment) {
-		String paymentType1 = "Paypal";
-		boolean isPaymentProcessed;
-		if(payment.getPaymentDetails().toLowerCase().contains(paymentType1.toLowerCase()))
-			isPaymentProcessed = paymentServicePaypal.processPayment(payment);
-		else
-			isPaymentProcessed = paymentServiceCreditCard.processPayment(payment);
-		return(isPaymentProcessed);
-	}
-	
+	//All other concrete methods goes here	
 	//done
 	public boolean checkAgreementResponse(String userAnswer) {
 		if(userAnswer.toLowerCase() == "y")

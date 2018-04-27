@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/PremiumController")
 public class PaymentController {
+//	@Autowired
+//	private PaymentService paymentService;
+	
 	@Autowired
-	private PaymentService paymentService;
+	private PaymentServicePaypal paymentServicePaypal;
+	@Autowired
+	private PaymentServiceCreditCard paymentServiceCreditCard;
 	
 	//done
 	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/{userAnswer}")
 	public String buyPlan(@RequestBody Customer customer, @PathVariable String userAnswer) {
-		boolean isResponseValid = paymentService.checkAgreementResponse(userAnswer);
+		boolean isResponseValid = paymentServicePaypal.checkAgreementResponse(userAnswer);
 		if(isResponseValid)
 			return "Agreement Accepted";
 		else
@@ -26,9 +31,15 @@ public class PaymentController {
 	}
 	
 	//done here
-	@RequestMapping(method=RequestMethod.POST, value="/buyPlan/processPayment")
+	@RequestMapping(method=RequestMethod.POST, value="/updateToPremium/processPayment")
 	public void processPayment(@RequestBody Payment payment) {
-		boolean isPaymentProcessed = paymentService.checkPaymentType(payment);
+		boolean isPaymentProcessed = false;
+		String paymentType1 = "paypal";
+		if(payment.getPaymentDetails().toLowerCase().contains(paymentType1))
+			isPaymentProcessed = paymentServicePaypal.processPayment(payment);
+		else
+			isPaymentProcessed = paymentServiceCreditCard.processPayment(payment);
+		
 		if(isPaymentProcessed)
 			this.showPaymentSuccess();
 	}
