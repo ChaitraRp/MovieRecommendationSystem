@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/CustomerController")
 public class CustomerController extends UserController {
 
 	@Autowired

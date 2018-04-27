@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/RcmdController")
 public class RecommendationController {
 	
 	@Autowired
@@ -33,9 +32,9 @@ public class RecommendationController {
 		return "Failed to update Watched Movie List";
 	}
 
-	@RequestMapping("/updateWatchedMovieList/{custID}")
-	public List<Movie> getRecommendedMovies(@PathVariable String customerId) {
-		return recmdService.getRecmdMovies(customerId);
+	@RequestMapping("/getRecommendedMovies/{custID}")
+	public List<Movie> getRecommendedMovies(@PathVariable String custID) {
+		return recmdService.getRecmdMovies(custID);
 	}
 	
 	
