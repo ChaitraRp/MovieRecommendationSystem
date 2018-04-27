@@ -1,6 +1,5 @@
 package mrsapi.packagee;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,11 +22,11 @@ public class PaymentServiceCreditCard extends PaymentService{
 		String cardHolderName = paymentDetails[1];
 		long cardNumber = Long.valueOf(paymentDetails[2]);
 		int cvv = Integer.valueOf(paymentDetails[3]);
-		int cardMonth = Integer.valueOf(paymentDetails[3]);
-		int cardYear = Integer.valueOf(paymentDetails[4]);
+		int cardMonth = Integer.valueOf(paymentDetails[4]);
+		int cardYear = Integer.valueOf(paymentDetails[5]);
 		double amount = pay.getAmount();
 		
-		//test card values hardcoded
+		//test card values hard coded
 		String testCardType = "Discover";
 		String testName = "Chaitra Ramachandra";
 		long testCardNumber = 6000700080009000L;
@@ -37,7 +36,7 @@ public class PaymentServiceCreditCard extends PaymentService{
 		double testAmount = 99.99;
 		
 		//check for validity
-		if(creditCardType == testCardType && cardHolderName == testName && cardNumber == testCardNumber 
+		if(creditCardType.equals(testCardType) && cardHolderName.equals(testName) && cardNumber == testCardNumber 
 				&& cvv == testCvv && cardMonth == testCardMonth && cardYear == testCardYear && amount == testAmount) {
 			return true;
 		}

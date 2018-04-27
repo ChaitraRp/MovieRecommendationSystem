@@ -24,7 +24,7 @@ public abstract class PaymentService {
 	//All other concrete methods goes here	
 	//done
 	public boolean checkAgreementResponse(String userAnswer) {
-		if(userAnswer.toLowerCase() == "y")
+		if(userAnswer.toLowerCase().equals("yes"))
 			return true;
 		else
 			return false;
@@ -37,7 +37,7 @@ public abstract class PaymentService {
 			return true;
 		}
 		catch (Exception e) {
-			System.out.println("Error in adding Customer through Admin: " + e.getMessage());
+			System.out.println("Error in saving Payment info to Database " + e.getMessage());
 			return false;
 		}
 	}
